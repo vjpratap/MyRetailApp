@@ -14,6 +14,7 @@
 		EEDB97D71AF0F16D002F5FFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEDB97D61AF0F16D002F5FFE /* Images.xcassets */; };
 		EEDB97DA1AF0F16D002F5FFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEDB97D81AF0F16D002F5FFE /* LaunchScreen.xib */; };
 		EEDB97E61AF0F16D002F5FFE /* RetailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB97E51AF0F16D002F5FFE /* RetailTests.m */; };
+		EEDB97F11AF0F494002F5FFE /* ItemListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB97F01AF0F494002F5FFE /* ItemListTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		EEDB97DF1AF0F16D002F5FFE /* RetailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDB97E41AF0F16D002F5FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEDB97E51AF0F16D002F5FFE /* RetailTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RetailTests.m; sourceTree = "<group>"; };
+		EEDB97EF1AF0F494002F5FFE /* ItemListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListTableViewController.h; sourceTree = "<group>"; };
+		EEDB97F01AF0F494002F5FFE /* ItemListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				EEDB97CE1AF0F16D002F5FFE /* AppDelegate.m */,
 				EEDB97D01AF0F16D002F5FFE /* ViewController.h */,
 				EEDB97D11AF0F16D002F5FFE /* ViewController.m */,
+				EEDB97EF1AF0F494002F5FFE /* ItemListTableViewController.h */,
+				EEDB97F01AF0F494002F5FFE /* ItemListTableViewController.m */,
 				EEDB97D31AF0F16D002F5FFE /* Main.storyboard */,
 				EEDB97D61AF0F16D002F5FFE /* Images.xcassets */,
 				EEDB97D81AF0F16D002F5FFE /* LaunchScreen.xib */,
@@ -221,6 +226,7 @@
 			files = (
 				EEDB97D21AF0F16D002F5FFE /* ViewController.m in Sources */,
 				EEDB97CF1AF0F16D002F5FFE /* AppDelegate.m in Sources */,
+				EEDB97F11AF0F494002F5FFE /* ItemListTableViewController.m in Sources */,
 				EEDB97CC1AF0F16D002F5FFE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Retail/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,6 +360,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Retail/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,6 +420,7 @@
 				EEDB97EB1AF0F16D002F5FFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EEDB97EC1AF0F16D002F5FFE /* Build configuration list for PBXNativeTarget "RetailTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +429,7 @@
 				EEDB97EE1AF0F16D002F5FFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,21 +7,67 @@
 //
 
 #import "ViewController.h"
+#import "ItemListTableViewController.h"
 
 @interface ViewController ()
 
+@property (strong, nonatomic)NSMutableDictionary *categoryItems;
+@property (strong, nonatomic)NSMutableArray *categories;
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad
+{
+[super viewDidLoad];
+// table view data is being set here
+self.categoryItems = [[NSMutableDictionary alloc]init];
+self.categories = [[NSMutableArray alloc]initWithObjects:@"Electronics",@"Furniture",@"Clothes",@"Sports", nil];
+    
+NSMutableArray *electronicsItems = [[NSMutableArray alloc]initWithObjects:@"TV",@"AC",@"Printer", nil];
+[self.categoryItems setValue:electronicsItems forKey:@"Electronics"];
+    
+NSMutableArray *furnitureItems = [[NSMutableArray alloc]initWithObjects:@"Sofa",@"Table", nil];
+[self.categoryItems setValue:furnitureItems forKey:@"Furniture"];
+    
+NSMutableArray *clothesItems = [[NSMutableArray alloc]initWithObjects:@"T-shirt",@"Jeans", nil];
+[self.categoryItems setValue:clothesItems forKey:@"Clothes"];
+    
+NSMutableArray *sportsItems = [[NSMutableArray alloc]initWithObjects:@"Cricket Bat",@"Tennis Ball", nil];
+[self.categoryItems setValue:sportsItems forKey:@"Sports"];
+
+
+// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
 }
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return self.categories.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SingleCategory"];
+    cell.textLabel.text = [self.categories objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ItemListTableViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemList"];
+    itemVC.items = [self.categoryItems objectForKey:[self.categories objectAtIndex:[indexPath row]]];
+    
+    [self.navigationController pushViewController:itemVC animated:YES];
+}
+
+
 
 @end

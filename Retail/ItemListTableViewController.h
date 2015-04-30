@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ItemListTableViewController.h
 //  Retail
 //
 //  Created by Vijay Pratap Singh on 29/04/15.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ItemListTableViewController : UITableViewController
 
-
+@property (strong, nonatomic) NSMutableArray *items;
 
 @end
-
