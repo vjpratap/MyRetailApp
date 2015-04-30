@@ -7,6 +7,15 @@
 //
 
 #import "ItemListTableViewController.h"
+#import "ItemDetailViewController.h"
+
+@interface ItemListTableViewController()
+
+@property(strong, nonatomic)NSMutableArray *item;
+
+@property(strong, nonatomic)NSMutableDictionary *itemDetails;
+
+@end
 
 @implementation ItemListTableViewController
 
@@ -30,6 +39,15 @@
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ItemDetailViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemDetail"];
+    itemVC.items = [self.itemDetails objectForKey:[self.item objectAtIndex:[indexPath row]]];
+    
+    [self.navigationController pushViewController:itemVC animated:YES];
+}
+
 
 
 

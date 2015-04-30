@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE9806241AF2122A00F325B2 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9806231AF2122A00F325B2 /* ItemDetailViewController.m */; };
 		EEDB97CC1AF0F16D002F5FFE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB97CB1AF0F16D002F5FFE /* main.m */; };
 		EEDB97CF1AF0F16D002F5FFE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB97CE1AF0F16D002F5FFE /* AppDelegate.m */; };
 		EEDB97D21AF0F16D002F5FFE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB97D11AF0F16D002F5FFE /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE9806221AF2122A00F325B2 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
+		EE9806231AF2122A00F325B2 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 		EEDB97C61AF0F16D002F5FFE /* Retail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Retail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDB97CA1AF0F16D002F5FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEDB97CB1AF0F16D002F5FFE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				EEDB97CD1AF0F16D002F5FFE /* AppDelegate.h */,
 				EEDB97CE1AF0F16D002F5FFE /* AppDelegate.m */,
 				EEDB97D01AF0F16D002F5FFE /* ViewController.h */,
+				EE9806221AF2122A00F325B2 /* ItemDetailViewController.h */,
+				EE9806231AF2122A00F325B2 /* ItemDetailViewController.m */,
 				EEDB97D11AF0F16D002F5FFE /* ViewController.m */,
 				EEDB97EF1AF0F494002F5FFE /* ItemListTableViewController.h */,
 				EEDB97F01AF0F494002F5FFE /* ItemListTableViewController.m */,
@@ -228,6 +233,7 @@
 				EEDB97CF1AF0F16D002F5FFE /* AppDelegate.m in Sources */,
 				EEDB97F11AF0F494002F5FFE /* ItemListTableViewController.m in Sources */,
 				EEDB97CC1AF0F16D002F5FFE /* main.m in Sources */,
+				EE9806241AF2122A00F325B2 /* ItemDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
