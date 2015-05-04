@@ -27,7 +27,7 @@ self.categories = [[NSMutableArray alloc]initWithObjects:@"Electronics",@"Furnit
 NSMutableArray *electronicsItems = [[NSMutableArray alloc]initWithObjects:@"TV",@"AC",@"Printer", nil];
 [self.categoryItems setValue:electronicsItems forKey:@"Electronics"];
     
-NSMutableArray *furnitureItems = [[NSMutableArray alloc]initWithObjects:@"Sofa",@"Table", nil];
+NSMutableArray *furnitureItems = [[NSMutableArray alloc]initWithObjects:@"Sofa",@"Chair", nil];
 [self.categoryItems setValue:furnitureItems forKey:@"Furniture"];
     
 NSMutableArray *clothesItems = [[NSMutableArray alloc]initWithObjects:@"T-shirt",@"Jeans", nil];
@@ -62,10 +62,10 @@ NSMutableArray *sportsItems = [[NSMutableArray alloc]initWithObjects:@"Cricket B
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ItemListTableViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemList"];
-    itemVC.items = [self.categoryItems objectForKey:[self.categories objectAtIndex:[indexPath row]]];
+    ItemListTableViewController *itemList = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemList"];
+    itemList.items = [self.categoryItems objectForKey:[self.categories objectAtIndex:[indexPath row]]];
     
-    [self.navigationController pushViewController:itemVC animated:YES];
+    [self.navigationController pushViewController:itemList animated:YES];
 }
 
 

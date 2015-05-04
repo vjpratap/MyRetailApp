@@ -11,13 +11,15 @@
 
 @interface ItemListTableViewController()
 
-@property(strong, nonatomic)NSMutableArray *item;
-
-@property(strong, nonatomic)NSMutableDictionary *itemDetails;
-
 @end
 
 @implementation ItemListTableViewController
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+}
 
 
 #pragma mark - Table view data source
@@ -43,7 +45,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ItemDetailViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemDetail"];
-    itemVC.items = [self.itemDetails objectForKey:[self.item objectAtIndex:[indexPath row]]];
+    itemVC.selectedItem = [self.items objectAtIndex:[indexPath row]];
     
     [self.navigationController pushViewController:itemVC animated:YES];
 }

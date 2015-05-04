@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ItemDetailViewController : UIViewController
+@interface ItemDetailViewController : BaseViewController
 
-@property (strong, nonatomic) NSMutableArray *items;
+@property (strong, nonatomic) NSString *selectedItem;
 
 @end
