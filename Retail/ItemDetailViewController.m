@@ -61,6 +61,10 @@ static NSDictionary *itemDetailsDictionary;
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)AddToCart:(id)sender {
+    UIAlertView *addItemToCart = [[UIAlertView alloc] initWithTitle:@"Do you want to add this in cart" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    [addItemToCart show];
+}
 
 /*
 #pragma mark - Navigation
