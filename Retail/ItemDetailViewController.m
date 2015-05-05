@@ -7,6 +7,7 @@
 //
 
 #import "ItemDetailViewController.h"
+#import "CartItemViewController.h"
 
 static NSDictionary *itemDetailsDictionary;
 
@@ -73,21 +74,30 @@ static NSDictionary *itemDetailsDictionary;
     
     NSError *error;
     
-    [fileContent writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    [fileContent writeToFile:filePath atomically:NO encoding:NSUTF8StringEncoding error:&error];
 }
 
 
 - (IBAction)AddToCart:(id)sender {
-    NSString *selectedItemForAddingInCart = [NSString stringWithFormat:@"%@",itemDetailsDictionary[_selectedItem]];
+    NSString *selectedItemForAddingInCart = [NSString stringWithFormat:@",,%@",itemDetailsDictionary[_selectedItem]];
     [self readAndWriteInFile:selectedItemForAddingInCart];
     UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil message:@"Item is added in cart" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
     [toast show];
     
-    int duration = 1;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [toast dismissWithClickedButtonIndex:0 animated:YES];
     });
 }
+
+- (IBAction)spickesButton:(id)sender {
+    NSData *data = [[NSFileManager defaultManager] contentsAtPath:[NSHomeDirectory() stringByAppendingString:@"/Documents/file.txt"]];
+    NSString *fileContent = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
+//    NSArray *cartItems = [fileContent componentsSeparatedByString:@",,"];
+    CartItemViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CartItem"];
+    itemVC.cartItems = [fileContent componentsSeparatedByString:@",,"];
+    [self.navigationController pushViewController:itemVC animated:YES];
+}
+
 
 
 /*
