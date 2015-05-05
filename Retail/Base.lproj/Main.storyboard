@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Categories-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -48,7 +48,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="HSH-8w-LRP"/>
+                    <navigationItem key="navigationItem" title="Categories" id="HSH-8w-LRP"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="365" height="600"/>
                 </viewController>
@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="1072" y="-285"/>
         </scene>
-        <!--Item List Table View Controller-->
+        <!--Item List-->
         <scene sceneID="tWQ-e3-6Eu">
             <objects>
                 <tableViewController storyboardIdentifier="ItemList" id="Xpa-WI-40I" customClass="ItemListTableViewController" sceneMemberID="viewController">
@@ -77,13 +77,13 @@
                             <outlet property="delegate" destination="Xpa-WI-40I" id="XCO-aW-hAo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="1mX-t8-W97"/>
+                    <navigationItem key="navigationItem" title="Item List" id="1mX-t8-W97"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="365" height="600"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UU0-gn-5wU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1563" y="-285"/>
+            <point key="canvasLocation" x="1562.5" y="-299"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="5dD-d1-zal">
@@ -124,7 +124,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="AddToCart:" destination="Uq0-Re-8ML" eventType="touchUpInside" id="noh-y0-Kt6"/>
+                                    <action selector="AddToCart:" destination="Uq0-Re-8ML" eventType="touchUpInside" id="Scl-rV-239"/>
                                 </connections>
                             </button>
                         </subviews>

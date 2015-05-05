@@ -12,7 +12,6 @@ static NSDictionary *itemDetailsDictionary;
 
 @interface ItemDetailViewController ()
 {
-    
  
 }
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -36,9 +35,9 @@ static NSDictionary *itemDetailsDictionary;
                               @"Chair":
                                   @{@"title": @"Italiano Chair", @"price": @"Rs 4,000", @"description":@"This is an awesome chair", @"image":@"chair"},
                               @"T-shirt":
-                                  @{@"title": @"SuperMan T-shirt", @"price": @"Rs 4,00", @"description":@"Feel like a Super Hero", @"image":@"t-shirt"},
+                                  @{@"title": @"SuperMan T-shirt", @"price": @"Rs 400", @"description":@"Feel like a Super Hero", @"image":@"t-shirt"},
                               @"Jeans":
-                                  @{@"title": @"Jeans", @"price": @"Rs 8,00", @"description":@"Made for feel comfort", @"image":@"jeans"},
+                                  @{@"title": @"Jeans", @"price": @"Rs 800", @"description":@"Made for feel comfort", @"image":@"jeans"},
                               @"Cricket Bat":
                                   @{@"title": @"Cricket Bat", @"price": @"Rs 1,500", @"description":@"For playing good cricket", @"image":@"bat"},
                               @"Tennis Ball":
@@ -61,10 +60,27 @@ static NSDictionary *itemDetailsDictionary;
     // Dispose of any resources that can be recreated.
 }
 
+
 - (IBAction)AddToCart:(id)sender {
-    UIAlertView *addItemToCart = [[UIAlertView alloc] initWithTitle:@"Do you want to add this in cart" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
-    [addItemToCart show];
+    NSString *previousString = [NSString stringWithFormat:@"%@",itemDetailsDictionary[_selectedItem]];
+    NSString *filePath = [NSHomeDirectory() stringByAppendingString:@"/Documents/file.txt"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+//    NSLog(@"File exists : %@", [fileManager fileExistsAtPath:@"my_file.txt"]? @"YES" : @"NO");
+    if ([fileManager fileExistsAtPath:filePath] == NO) {
+        [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+        NSLog(@"is creation in succeded");
+    }
+    NSData *dataBuffer;
+    dataBuffer = [fileManager contentsAtPath:filePath];
+    NSString *fileContent = [[NSString alloc]initWithBytes:[dataBuffer bytes] length:[dataBuffer length] encoding:NSUTF8StringEncoding];
+//    NSLog(@"=======%@",fileContent);
+    fileContent = [fileContent stringByAppendingString:previousString];
+    
+    NSError *error;
+    
+    [fileContent writeToFile:filePath atomically:NO encoding:NSUTF8StringEncoding error:&error];
 }
+
 
 /*
 #pragma mark - Navigation
