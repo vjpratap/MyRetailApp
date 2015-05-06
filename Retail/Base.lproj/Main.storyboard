@@ -98,28 +98,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdS-bq-ifS">
-                                <rect key="frame" x="6" y="57" width="365" height="59"/>
+                                <rect key="frame" x="0.0" y="106" width="365" height="59"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="0.56885045430000003" green="0.26604397839999999" blue="0.75793987770000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxG-cw-PLR">
-                                <rect key="frame" x="6" y="389" width="127" height="43"/>
+                                <rect key="frame" x="4" y="432" width="127" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.56885045430000003" green="0.26604397839999999" blue="0.75793987770000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t7O-Tc-t2p">
-                                <rect key="frame" x="6" y="124" width="365" height="251"/>
+                                <rect key="frame" x="7" y="173" width="365" height="251"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orj-7J-bde">
-                                <rect key="frame" x="6" y="440" width="368" height="52"/>
+                                <rect key="frame" x="4" y="483" width="368" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.56885045430000003" green="0.26604397839999999" blue="0.75793987770000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpt-7d-uPr">
-                                <rect key="frame" x="128" y="500" width="118" height="30"/>
+                                <rect key="frame" x="130" y="550" width="118" height="30"/>
                                 <state key="normal" title="Add To Cart">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -127,13 +127,13 @@
                                     <action selector="AddToCart:" destination="Uq0-Re-8ML" eventType="touchUpInside" id="Scl-rV-239"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGM-Dh-aXG">
-                                <rect key="frame" x="16" y="550" width="92" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="by9-Fq-PVD">
+                                <rect key="frame" x="286" y="68" width="73" height="30"/>
                                 <state key="normal" title="My Cart">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="spickesButton:" destination="Uq0-Re-8ML" eventType="touchUpInside" id="KeZ-fF-Zx8"/>
+                                    <action selector="ShowMyCartPage:" destination="Uq0-Re-8ML" eventType="touchUpInside" id="VQG-WQ-EEd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -150,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TdF-fQ-fwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196.5" y="-285"/>
+            <point key="canvasLocation" x="1200.5" y="-285"/>
         </scene>
         <!--My Cart-->
         <scene sceneID="w55-ae-h3o">
@@ -163,6 +163,17 @@
                     <view key="view" contentMode="scaleToFill" id="TAS-bh-E0T">
                         <rect key="frame" x="0.0" y="0.0" width="365" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6p-Mu-ugW">
+                                <rect key="frame" x="159" y="113" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="spicks:" destination="zCq-wI-UZf" eventType="touchUpInside" id="V3G-SQ-pT0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -71,7 +71,7 @@ static NSDictionary *itemDetailsDictionary;
     dataBuffer = [fileManager contentsAtPath:filePath];
     NSString *fileContent = [[NSString alloc]initWithBytes:[dataBuffer bytes] length:[dataBuffer length] encoding:NSUTF8StringEncoding];
     fileContent = [fileContent stringByAppendingString:selectedItemForAddingInCart];
-    
+
     NSError *error;
     
     [fileContent writeToFile:filePath atomically:NO encoding:NSUTF8StringEncoding error:&error];
@@ -79,7 +79,7 @@ static NSDictionary *itemDetailsDictionary;
 
 
 - (IBAction)AddToCart:(id)sender {
-    NSString *selectedItemForAddingInCart = [NSString stringWithFormat:@",,%@",itemDetailsDictionary[_selectedItem]];
+    NSString *selectedItemForAddingInCart = [NSString stringWithFormat:@",%@",itemDetailsDictionary[_selectedItem]];
     [self readAndWriteInFile:selectedItemForAddingInCart];
     UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil message:@"Item is added in cart" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
     [toast show];
@@ -89,16 +89,22 @@ static NSDictionary *itemDetailsDictionary;
     });
 }
 
-- (IBAction)spickesButton:(id)sender {
+
+- (IBAction)ShowMyCartPage:(id)sender {
     NSData *data = [[NSFileManager defaultManager] contentsAtPath:[NSHomeDirectory() stringByAppendingString:@"/Documents/file.txt"]];
     NSString *fileContent = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
-//    NSArray *cartItems = [fileContent componentsSeparatedByString:@",,"];
+    //    NSArray *cartItems = [fileContent componentsSeparatedByString:@",,"];
     CartItemViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CartItem"];
-    itemVC.cartItems = [fileContent componentsSeparatedByString:@",,"];
-    [self.navigationController pushViewController:itemVC animated:YES];
+    NSArray *cartItemsArray = [fileContent componentsSeparatedByString:@",,"];
+    itemVC.cartItems = [NSMutableArray arrayWithArray:cartItemsArray];
+    [self.navigationController pushViewController:itemVC animated:NO];
 }
 
 
+//- (void)convertToDictionary:(NSString *) fileContent
+//{
+//    NSDictionary *dict = (NSDictionary *)fileContent;`
+//}
 
 /*
 #pragma mark - Navigation

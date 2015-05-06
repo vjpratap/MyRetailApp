@@ -10,6 +10,6 @@
 
 @interface CartItemViewController : UIViewController
 
-@property(strong, nonatomic) NSArray *cartItems;
+@property(strong, nonatomic) NSMutableArray *cartItems;
 
 @end

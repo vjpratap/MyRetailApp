@@ -7,6 +7,7 @@
 //
 
 #import "CartItemViewController.h"
+#import "ItemDetailViewController.h"
 
 @interface CartItemViewController ()
 
@@ -23,6 +24,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)spicks:(id)sender {
+    [self.cartItems removeObjectAtIndex:0];
+    NSString *firstItem = self.cartItems[0];
+    
+    NSError *jsonError;
+    NSData *objectData = [firstItem dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:objectData
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:&jsonError];
+    
+    NSString *imageName = [json objectForKey:@"image"];
+
+    
+    NSLog(@"%@",imageName);
+    
+}
+
 
 /*
 #pragma mark - Navigation
