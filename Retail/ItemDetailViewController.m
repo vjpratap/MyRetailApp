@@ -8,7 +8,7 @@
 
 #import "ItemDetailViewController.h"
 #import "CartItemViewController.h"
-
+#import "CartItemDetails.h"
 static NSDictionary *itemDetailsDictionary;
 
 @interface ItemDetailViewController ()
@@ -61,26 +61,11 @@ static NSDictionary *itemDetailsDictionary;
     // Dispose of any resources that can be recreated.
 }
 
--(void)readAndWriteInFile:(NSString*) selectedItemForAddingInCart {
-    NSString *filePath = [NSHomeDirectory() stringByAppendingString:@"/Documents/file.txt"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:filePath] == NO) {
-        [fileManager createFileAtPath:filePath contents:nil attributes:nil];
-    }
-    NSData *dataBuffer;
-    dataBuffer = [fileManager contentsAtPath:filePath];
-    NSString *fileContent = [[NSString alloc]initWithBytes:[dataBuffer bytes] length:[dataBuffer length] encoding:NSUTF8StringEncoding];
-    fileContent = [fileContent stringByAppendingString:selectedItemForAddingInCart];
-
-    NSError *error;
-    
-    [fileContent writeToFile:filePath atomically:NO encoding:NSUTF8StringEncoding error:&error];
-}
-
-
 - (IBAction)AddToCart:(id)sender {
-    NSString *selectedItemForAddingInCart = [NSString stringWithFormat:@",%@",itemDetailsDictionary[_selectedItem]];
-    [self readAndWriteInFile:selectedItemForAddingInCart];
+    
+    [CartItemDetails saveCartItem: itemDetailsDictionary[_selectedItem]];
+    
+    
     UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil message:@"Item is added in cart" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
     [toast show];
     
@@ -91,29 +76,23 @@ static NSDictionary *itemDetailsDictionary;
 
 
 - (IBAction)ShowMyCartPage:(id)sender {
-    NSData *data = [[NSFileManager defaultManager] contentsAtPath:[NSHomeDirectory() stringByAppendingString:@"/Documents/file.txt"]];
-    NSString *fileContent = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
-    //    NSArray *cartItems = [fileContent componentsSeparatedByString:@",,"];
-    CartItemViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CartItem"];
-    NSArray *cartItemsArray = [fileContent componentsSeparatedByString:@",,"];
-    itemVC.cartItems = [NSMutableArray arrayWithArray:cartItemsArray];
-    [self.navigationController pushViewController:itemVC animated:NO];
+//    NSData *data = [[NSFileManager defaultManager] contentsAtPath:[NSHomeDirectory() stringByAppendingString:@"/Documents/file.txt"]];
+//    NSString *fileContent = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
+//    //    NSArray *cartItems = [fileContent componentsSeparatedByString:@",,"];
+//    CartItemViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CartItem"];
+//    NSArray *cartItemsArray = [fileContent componentsSeparatedByString:@",,"];
+//    itemVC.cartItems = [NSMutableArray arrayWithArray:cartItemsArray];
+//    [self.navigationController pushViewController:itemVC animated:NO];
 }
-
-
-//- (void)convertToDictionary:(NSString *) fileContent
-//{
-//    NSDictionary *dict = (NSDictionary *)fileContent;`
-//}
 
 /*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
+//}
 */
 
 @end

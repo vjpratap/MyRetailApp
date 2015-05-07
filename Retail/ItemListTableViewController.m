@@ -8,9 +8,9 @@
 
 #import "ItemListTableViewController.h"
 #import "ItemDetailViewController.h"
+#import "CartItemDetails.h"
 
 @interface ItemListTableViewController()
-
 @end
 
 @implementation ItemListTableViewController
@@ -18,7 +18,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
 }
 
 
@@ -37,7 +36,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Item"];
-    cell.textLabel.text = [self.items objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [self.items objectAtIndex:[indexPath row]][@"item"];
     
     return cell;
 }
@@ -45,7 +45,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ItemDetailViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemDetail"];
-    itemVC.selectedItem = [self.items objectAtIndex:[indexPath row]];
+    itemVC.selectedItem = [self.items objectAtIndex:[indexPath row]][@"item"];
     
     [self.navigationController pushViewController:itemVC animated:YES];
 }
