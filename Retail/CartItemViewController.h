@@ -2,14 +2,14 @@
 //  CartItemViewController.h
 //  Retail
 //
-//  Created by Vijay Pratap Singh on 05/05/15.
+//  Created by Vijay Pratap Singh on 08/05/15.
 //  Copyright (c) 2015 thoughtworks. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface CartItemViewController : UIViewController
+@interface CartItemViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
-@property(strong, nonatomic) NSMutableArray *cartItems;
+@property(strong, nonatomic) NSMutableArray* itemsInCart;
 
 @end

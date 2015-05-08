@@ -42,8 +42,17 @@ static NSManagedObjectContext *managedObjectContext;
         AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
         managedObjectContext = delegate.managedObjectContext;
     }
-    
     return managedObjectContext;
 }
+
++(NSArray *)fetchFromDataBase{
+    NSEntityDescription *cartItemDetails = [NSEntityDescription entityForName:@"CartItemDetails"inManagedObjectContext:[CartItemDetails getManagedObjectContext]];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:cartItemDetails];
+    NSError *error;
+    NSArray *arr = [managedObjectContext executeFetchRequest:request error:&error];
+    return arr;
+}
+
 
 @end

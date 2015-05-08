@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3B86B51AFCA4AF0019122B /* CartItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3B86B41AFCA4AF0019122B /* CartItemViewController.m */; };
 		EE8E594A1AFB774200BB94BD /* ItemListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8E59491AFB774200BB94BD /* ItemListCell.m */; };
 		EE9806241AF2122A00F325B2 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9806231AF2122A00F325B2 /* ItemDetailViewController.m */; };
 		EE9806271AF2572F00F325B2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9806261AF2572F00F325B2 /* BaseViewController.m */; };
 		EE9A0C8E1AFA2F6D009B69FD /* CartItem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE9A0C8C1AFA2F6D009B69FD /* CartItem.xcdatamodeld */; };
 		EE9A0C9A1AFA431B009B69FD /* CartItemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A0C991AFA431B009B69FD /* CartItemDetails.m */; };
-		EE9A95461AF8E98800467923 /* CartItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A95451AF8E98800467923 /* CartItemViewController.m */; };
 		EEDB97CC1AF0F16D002F5FFE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB97CB1AF0F16D002F5FFE /* main.m */; };
 		EEDB97CF1AF0F16D002F5FFE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB97CE1AF0F16D002F5FFE /* AppDelegate.m */; };
 		EEDB97D21AF0F16D002F5FFE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDB97D11AF0F16D002F5FFE /* ViewController.m */; };
@@ -34,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE3B86B31AFCA4AF0019122B /* CartItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartItemViewController.h; sourceTree = "<group>"; };
+		EE3B86B41AFCA4AF0019122B /* CartItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartItemViewController.m; sourceTree = "<group>"; };
 		EE8E59481AFB774200BB94BD /* ItemListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListCell.h; sourceTree = "<group>"; };
 		EE8E59491AFB774200BB94BD /* ItemListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListCell.m; sourceTree = "<group>"; };
 		EE9806221AF2122A00F325B2 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
@@ -43,8 +45,6 @@
 		EE9A0C8D1AFA2F6D009B69FD /* CartItem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CartItem.xcdatamodel; sourceTree = "<group>"; };
 		EE9A0C981AFA431B009B69FD /* CartItemDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartItemDetails.h; sourceTree = "<group>"; };
 		EE9A0C991AFA431B009B69FD /* CartItemDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartItemDetails.m; sourceTree = "<group>"; };
-		EE9A95441AF8E98800467923 /* CartItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartItemViewController.h; sourceTree = "<group>"; };
-		EE9A95451AF8E98800467923 /* CartItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartItemViewController.m; sourceTree = "<group>"; };
 		EEDB97C61AF0F16D002F5FFE /* Retail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Retail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDB97CA1AF0F16D002F5FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEDB97CB1AF0F16D002F5FFE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -112,11 +112,11 @@
 				EEDB97D11AF0F16D002F5FFE /* ViewController.m */,
 				EEDB97EF1AF0F494002F5FFE /* ItemListTableViewController.h */,
 				EEDB97F01AF0F494002F5FFE /* ItemListTableViewController.m */,
-				EE9A95441AF8E98800467923 /* CartItemViewController.h */,
 				EE8E59481AFB774200BB94BD /* ItemListCell.h */,
 				EE8E59491AFB774200BB94BD /* ItemListCell.m */,
-				EE9A95451AF8E98800467923 /* CartItemViewController.m */,
 				EEDB97D31AF0F16D002F5FFE /* Main.storyboard */,
+				EE3B86B31AFCA4AF0019122B /* CartItemViewController.h */,
+				EE3B86B41AFCA4AF0019122B /* CartItemViewController.m */,
 				EEDB97D61AF0F16D002F5FFE /* Images.xcassets */,
 				EE9806251AF2572F00F325B2 /* BaseViewController.h */,
 				EE9806261AF2572F00F325B2 /* BaseViewController.m */,
@@ -255,7 +255,7 @@
 				EEDB97D21AF0F16D002F5FFE /* ViewController.m in Sources */,
 				EE9806271AF2572F00F325B2 /* BaseViewController.m in Sources */,
 				EEDB97CF1AF0F16D002F5FFE /* AppDelegate.m in Sources */,
-				EE9A95461AF8E98800467923 /* CartItemViewController.m in Sources */,
+				EE3B86B51AFCA4AF0019122B /* CartItemViewController.m in Sources */,
 				EE9A0C9A1AFA431B009B69FD /* CartItemDetails.m in Sources */,
 				EEDB97F11AF0F494002F5FFE /* ItemListTableViewController.m in Sources */,
 				EE8E594A1AFB774200BB94BD /* ItemListCell.m in Sources */,

@@ -24,16 +24,29 @@
 self.categoryItems = [[NSMutableDictionary alloc]init];
 self.categories = [[NSMutableArray alloc]initWithObjects:@"Electronics",@"Furniture",@"Clothes",@"Sports", nil];
     
-    NSMutableArray *electronicsItems = [[NSMutableArray alloc]initWithObjects:@{@"item":@"TV", @"image":@"tv"},@{@"item":@"AC", @"image":@"ac"},@{@"item":@"Printer", @"image":@"printer"}, nil];
+    NSMutableArray *electronicsItems = [[NSMutableArray alloc]initWithObjects:
+  @{@"item":@"TV", @"image":@"tv"},
+  @{@"item":@"AC", @"image":@"ac"},
+  @{@"item":@"Printer", @"image":@"printer"},
+                                        nil];
 [self.categoryItems setValue:electronicsItems forKey:@"Electronics"];
     
-    NSMutableArray *furnitureItems = [[NSMutableArray alloc]initWithObjects:@{@"item":@"Sofa", @"image":@"sofa"},@{@"item":@"Chair", @"image":@"chair"}, nil];
+    NSMutableArray *furnitureItems = [[NSMutableArray alloc]initWithObjects:
+  @{@"item":@"Sofa", @"image":@"sofa"},
+  @{@"item":@"Chair", @"image":@"chair"},
+                                    nil];
 [self.categoryItems setValue:furnitureItems forKey:@"Furniture"];
     
-    NSMutableArray *clothesItems = [[NSMutableArray alloc]initWithObjects:@{@"item":@"T-shirt", @"image":@"t-shirt"},@{@"item":@"Jeans", @"image":@"jeans"}, nil];
+    NSMutableArray *clothesItems = [[NSMutableArray alloc]initWithObjects:
+  @{@"item":@"T-shirt",@"image":@"t-shirt"},
+  @{@"item":@"Jeans", @"image":@"jeans"}, nil];
+
 [self.categoryItems setValue:clothesItems forKey:@"Clothes"];
     
-    NSMutableArray *sportsItems = [[NSMutableArray alloc]initWithObjects:@{@"item":@"Cricket Bat", @"image":@"bat"},@{@"item":@"Tennis Ball", @"image":@"ball"}, nil];
+    NSMutableArray *sportsItems = [[NSMutableArray alloc]initWithObjects:
+  @{@"item":@"Cricket Bat", @"image":@"bat"},
+  @{@"item":@"Tennis Ball", @"image":@"ball"},
+                                        nil];
 [self.categoryItems setValue:sportsItems forKey:@"Sports"];
 
 

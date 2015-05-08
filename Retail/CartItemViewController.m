@@ -2,12 +2,13 @@
 //  CartItemViewController.m
 //  Retail
 //
-//  Created by Vijay Pratap Singh on 05/05/15.
+//  Created by Vijay Pratap Singh on 08/05/15.
 //  Copyright (c) 2015 thoughtworks. All rights reserved.
 //
 
 #import "CartItemViewController.h"
-#import "ItemDetailViewController.h"
+#import "CartItemDetails.h"
+#import "ItemListCell.h"
 
 @interface CartItemViewController ()
 
@@ -25,23 +26,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)spicks:(id)sender {
-    [self.cartItems removeObjectAtIndex:0];
-    NSString *firstItem = self.cartItems[0];
-    
-    NSError *jsonError;
-    NSData *objectData = [firstItem dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:objectData
-                                                         options:NSJSONReadingMutableContainers
-                                                           error:&jsonError];
-    
-    NSString *imageName = [json objectForKey:@"image"];
-
-    
-    NSLog(@"%@",imageName);
-    
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.itemsInCart count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ItemListCell *cell = (ItemListCell *)[tableView dequeueReusableCellWithIdentifier:@"SingleCartItem"];
+    cell.itemImage.image = [UIImage imageNamed:[[self.itemsInCart objectAtIndex:[indexPath row]] valueForKey:@"image"]];
+    cell.itemLable.text = [[self.itemsInCart objectAtIndex:[indexPath row]] valueForKey:@"title"];
+    cell.cartItemPriceLable.text = [[self.itemsInCart objectAtIndex:[indexPath row]] valueForKey:@"price"];
+
+    return cell;
+}
 
 /*
 #pragma mark - Navigation

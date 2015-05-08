@@ -8,7 +8,7 @@
 
 #import "ItemListTableViewController.h"
 #import "ItemDetailViewController.h"
-#import "CartItemDetails.h"
+#import "ItemListCell.h"
 
 @interface ItemListTableViewController()
 @end
@@ -35,9 +35,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Item"];
+    ItemListCell *cell = (ItemListCell *)[tableView dequeueReusableCellWithIdentifier:@"Item"];
     
-    cell.textLabel.text = [self.items objectAtIndex:[indexPath row]][@"item"];
+    cell.itemImage.image = [UIImage imageNamed:[self.items objectAtIndex:[indexPath row]][@"image"]];
+    cell.itemLable.text = [self.items objectAtIndex:[indexPath row]][@"item"];
     
     return cell;
 }

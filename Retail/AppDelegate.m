@@ -82,7 +82,7 @@
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     NSString *path = [NSString stringWithFormat:@"%@/Documents/CartItem.sqlite", NSHomeDirectory()];
     NSURL *url = [NSURL fileURLWithPath:path];
-    NSURL *storeURL = [[NSURL URLWithString:NSHomeDirectory()] URLByAppendingPathComponent:@"Documents/CartItem.sqlite"];
+//    NSURL *storeURL = [[NSURL URLWithString:NSHomeDirectory()] URLByAppendingPathComponent:@"/Documents/CartItem.sqlite"];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application saved data.";
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error]) {

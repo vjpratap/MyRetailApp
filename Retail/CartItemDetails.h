@@ -19,5 +19,6 @@
 @property (nonatomic, retain) NSString * image;
 
 +(void)saveCartItem:(NSDictionary *)itemDetails;
++(NSArray *)fetchFromDataBase;
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import "ItemDetailViewController.h"
-#import "CartItemViewController.h"
 #import "CartItemDetails.h"
+#import "CartItemViewController.h"
+
 static NSDictionary *itemDetailsDictionary;
 
 @interface ItemDetailViewController ()
@@ -26,23 +27,23 @@ static NSDictionary *itemDetailsDictionary;
 
 +(void)initialize {
     itemDetailsDictionary = @{@"TV":
-  @{@"title": @"Sony HD Television", @"price": @"Rs 12,000", @"description":@"This is an awesome TV", @"image":@"tv"},
+  @{@"title": @"Sony HD TV", @"price": @"12,000 ₹", @"description":@"This is an awesome TV", @"image":@"tv"},
                               @"AC":
-                                  @{@"title": @"Samsung AC", @"price": @"Rs 15,000", @"description":@"This is an awesome AC", @"image":@"ac"},
+                                  @{@"title": @"Samsung AC", @"price": @"15,000 ₹", @"description":@"This is an awesome AC", @"image":@"ac"},
                               @"Printer":
-                                  @{@"title": @"HP printer", @"price": @"Rs 5,000", @"description":@"This is an awesome printer", @"image":@"printer"},
+                                  @{@"title": @"HP printer", @"price": @"5,000 ₹", @"description":@"This is an awesome printer", @"image":@"printer"},
                               @"Sofa":
-                                  @{@"title": @"Italiano Sofa", @"price": @"Rs 19,000", @"description":@"This is an awesome Sofa", @"image":@"sofa"},
+                                  @{@"title": @"Italiano Sofa", @"price": @"19,000 ₹", @"description":@"This is an awesome Sofa", @"image":@"sofa"},
                               @"Chair":
-                                  @{@"title": @"Italiano Chair", @"price": @"Rs 4,000", @"description":@"This is an awesome chair", @"image":@"chair"},
+                                  @{@"title": @"Italiano Chair", @"price": @"4,000 ₹", @"description":@"This is an awesome chair", @"image":@"chair"},
                               @"T-shirt":
-                                  @{@"title": @"SuperMan T-shirt", @"price": @"Rs 400", @"description":@"Feel like a Super Hero", @"image":@"t-shirt"},
+                                  @{@"title": @"T-shirt", @"price": @"400 ₹", @"description":@"Feel like a Super Hero", @"image":@"t-shirt"},
                               @"Jeans":
-                                  @{@"title": @"Jeans", @"price": @"Rs 800", @"description":@"Made for feel comfort", @"image":@"jeans"},
+                                  @{@"title": @"Jeans", @"price": @"800 ₹", @"description":@"Made for feel comfort", @"image":@"jeans"},
                               @"Cricket Bat":
-                                  @{@"title": @"Cricket Bat", @"price": @"Rs 1,500", @"description":@"For playing good cricket", @"image":@"bat"},
+                                  @{@"title": @"Cricket Bat", @"price": @"1,500 ₹", @"description":@"For playing good cricket", @"image":@"bat"},
                               @"Tennis Ball":
-                                  @{@"title": @"Wilson tennis Ball", @"price": @"Rs 150", @"description":@"For playing good tennis", @"image":@"ball"}};
+                                  @{@"title": @"Tennis Ball", @"price": @"150 ₹", @"description":@"For playing good tennis", @"image":@"ball"}};
 }
 
 - (void)viewDidLoad {
@@ -61,11 +62,13 @@ static NSDictionary *itemDetailsDictionary;
     // Dispose of any resources that can be recreated.
 }
 
+
+
 - (IBAction)AddToCart:(id)sender {
     
     [CartItemDetails saveCartItem: itemDetailsDictionary[_selectedItem]];
     
-    
+//    [CartItemDetails fetchFromDataBase];
     UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil message:@"Item is added in cart" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
     [toast show];
     
@@ -76,13 +79,12 @@ static NSDictionary *itemDetailsDictionary;
 
 
 - (IBAction)ShowMyCartPage:(id)sender {
-//    NSData *data = [[NSFileManager defaultManager] contentsAtPath:[NSHomeDirectory() stringByAppendingString:@"/Documents/file.txt"]];
-//    NSString *fileContent = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding];
-//    //    NSArray *cartItems = [fileContent componentsSeparatedByString:@",,"];
-//    CartItemViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CartItem"];
-//    NSArray *cartItemsArray = [fileContent componentsSeparatedByString:@",,"];
-//    itemVC.cartItems = [NSMutableArray arrayWithArray:cartItemsArray];
-//    [self.navigationController pushViewController:itemVC animated:NO];
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[CartItemDetails fetchFromDataBase]];
+    CartItemViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CartItems"];
+    [sender setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)[mutableArray count]]];
+    
+    itemVC.itemsInCart = mutableArray;
+    [self.navigationController pushViewController:itemVC animated:YES];
 }
 
 /*

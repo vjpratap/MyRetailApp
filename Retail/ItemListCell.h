@@ -11,5 +11,6 @@
 @interface ItemListCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
 @property (weak, nonatomic) IBOutlet UILabel *itemLable;
+@property (weak, nonatomic) IBOutlet UILabel *cartItemPriceLable;
 
 @end
