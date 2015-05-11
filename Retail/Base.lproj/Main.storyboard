@@ -180,7 +180,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HsT-4Y-jN1">
-                                <rect key="frame" x="0.0" y="0.0" width="365" height="600"/>
+                                <rect key="frame" x="0.0" y="15" width="365" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SingleCartItem" id="cki-bl-Xi1" customClass="ItemListCell">
@@ -214,6 +214,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cartItemPriceLable" destination="fEH-i8-tN6" id="s1z-eL-6Nf"/>
+                                            <outlet property="cartItemQuantity" destination="BBN-u6-ss0" id="Bkg-LM-mHh"/>
                                             <outlet property="itemImage" destination="E5T-ok-F6x" id="av4-Mt-WVf"/>
                                             <outlet property="itemLable" destination="ih5-vs-yZT" id="OCG-Yt-AOM"/>
                                         </connections>

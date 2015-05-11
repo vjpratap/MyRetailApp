@@ -10,6 +10,6 @@
 
 @interface CartItemViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
-@property(strong, nonatomic) NSMutableArray* itemsInCart;
+@property(strong, nonatomic) NSMutableArray* cartItemArray;
 
 @end

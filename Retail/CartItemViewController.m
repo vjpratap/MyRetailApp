@@ -26,23 +26,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.itemsInCart count];
+    return [self.cartItemArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ItemListCell *cell = (ItemListCell *)[tableView dequeueReusableCellWithIdentifier:@"SingleCartItem"];
-    cell.itemImage.image = [UIImage imageNamed:[[self.itemsInCart objectAtIndex:[indexPath row]] valueForKey:@"image"]];
-    cell.itemLable.text = [[self.itemsInCart objectAtIndex:[indexPath row]] valueForKey:@"title"];
-    cell.cartItemPriceLable.text = [[self.itemsInCart objectAtIndex:[indexPath row]] valueForKey:@"price"];
-
+    cell.itemImage.image = [UIImage imageNamed:[_cartItemArray objectAtIndex:[indexPath row]][@"image"]];
+    cell.itemLable.text = [_cartItemArray objectAtIndex:[indexPath row]][@"title"];
+    cell.cartItemPriceLable.text = [_cartItemArray objectAtIndex:[indexPath row]][@"price"];
+    cell.cartItemQuantity.text = [@"Q" stringByAppendingString:[_cartItemArray objectAtIndex:[indexPath row]][@"quantity"]];
     return cell;
 }
+
 
 /*
 #pragma mark - Navigation

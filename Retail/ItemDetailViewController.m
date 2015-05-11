@@ -62,6 +62,42 @@ static NSDictionary *itemDetailsDictionary;
     // Dispose of any resources that can be recreated.
 }
 
+-(NSMutableArray *)addQuantity{
+    NSMutableArray *itemsInCart = [NSMutableArray arrayWithArray:[CartItemDetails fetchFromDataBase]];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    NSMutableArray *titles = [[NSMutableArray alloc]init];
+    NSMutableArray *cartItemWithQuntity = [[NSMutableArray alloc]init];
+    
+    for (NSInteger i = 0; i < [itemsInCart count]; i++) {
+        NSString *title = [[itemsInCart objectAtIndex:i] valueForKey:@"title"];
+        if (![titles containsObject: title]) {
+            [array addObject:@{@"item":title, @"index":[NSString stringWithFormat:@"%ld",(long)i]}];
+        }
+        
+        [titles addObject:title];
+        
+    }
+    
+    for (NSDictionary *arr in array) {
+        NSInteger i = 0;
+        
+        for (NSString *title in titles) {
+            if ([arr[@"item"] isEqualToString:title]) {
+                i = i + 1;
+            }
+        }
+        NSDictionary *dictionary = @{@"title":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"title"],
+                                     @"image":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"image"],
+                                     @"price":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"price"],
+                                     @"description":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"description"],
+                                     @"quantity":[NSString stringWithFormat:@"%ld", (long)i]
+                                     };
+        [cartItemWithQuntity addObject:dictionary];
+        
+    }
+    return cartItemWithQuntity;
+}
+
 
 
 - (IBAction)AddToCart:(id)sender {
@@ -79,11 +115,12 @@ static NSDictionary *itemDetailsDictionary;
 
 
 - (IBAction)ShowMyCartPage:(id)sender {
-    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[CartItemDetails fetchFromDataBase]];
+
+    NSMutableArray *mutableArray = [self addQuantity];
     CartItemViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CartItems"];
-    [sender setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)[mutableArray count]]];
+//    [sender setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)[mutableArray count]]];
     
-    itemVC.itemsInCart = mutableArray;
+    itemVC.cartItemArray = mutableArray;
     [self.navigationController pushViewController:itemVC animated:YES];
 }
 
