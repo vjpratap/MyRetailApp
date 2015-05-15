@@ -62,11 +62,39 @@ static NSDictionary *itemDetailsDictionary;
     // Dispose of any resources that can be recreated.
 }
 
+-(void)fillItemInDictionary : (NSDictionary*)arr arrayWithRepetitiveItemTitle:(NSArray*)arrayWithRepetitiveItemTitle cartItemWithQuntityArray:(NSMutableArray*)cartItemWithQuntityArray itemsInCart:(NSMutableArray*)itemsInCart{
+    
+    NSInteger i = 0;
+    for (NSString *title in arrayWithRepetitiveItemTitle) {
+        if ([arr[@"item"] isEqualToString:title]) {
+            i = i + 1;
+        }
+    }
+    NSDictionary *dictionary = @{@"title":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"title"],
+                                 @"image":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"image"],
+                                 @"price":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"price"],
+                                 @"description":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"description"],
+                                 @"quantity":[NSString stringWithFormat:@"%ld", (long)i]
+                                 };
+    [cartItemWithQuntityArray addObject:dictionary];
+
+}
+
+-(NSMutableArray *)cartItemWithQuntity : (NSArray*)arrayWithNonRepetitiveItemTitle arrayWithRepetitiveItemTitle:(NSMutableArray*)arrayWithRepetitiveItemTitle itemsInCart:(NSMutableArray*)itemsInCart{
+    
+    NSMutableArray *cartItemWithQuntityArray = [[NSMutableArray alloc]init];
+    
+    for (NSDictionary *arr in arrayWithNonRepetitiveItemTitle) {
+        [self fillItemInDictionary:arr arrayWithRepetitiveItemTitle:arrayWithRepetitiveItemTitle cartItemWithQuntityArray:cartItemWithQuntityArray itemsInCart:itemsInCart];
+    }
+    return cartItemWithQuntityArray;
+    
+}
+
 -(NSMutableArray *)addQuantity{
     NSMutableArray *itemsInCart = [NSMutableArray arrayWithArray:[CartItemDetails fetchFromDataBase]];
     NSMutableArray *arrayWithNonRepetitiveItemTitle = [[NSMutableArray alloc] init];
     NSMutableArray *arrayWithRepetitiveItemTitle = [[NSMutableArray alloc]init];
-    NSMutableArray *cartItemWithQuntity = [[NSMutableArray alloc]init];
     
     for (NSInteger i = 0; i < [itemsInCart count]; i++) {
         NSString *title = [[itemsInCart objectAtIndex:i] valueForKey:@"title"];
@@ -77,25 +105,7 @@ static NSDictionary *itemDetailsDictionary;
         [arrayWithRepetitiveItemTitle addObject:title];
         
     }
-    
-    for (NSDictionary *arr in arrayWithNonRepetitiveItemTitle) {
-        NSInteger i = 0;
-        
-        for (NSString *title in arrayWithRepetitiveItemTitle) {
-            if ([arr[@"item"] isEqualToString:title]) {
-                i = i + 1;
-            }
-        }
-        NSDictionary *dictionary = @{@"title":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"title"],
-                                     @"image":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"image"],
-                                     @"price":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"price"],
-                                     @"description":[[itemsInCart objectAtIndex:[arr[@"index"] integerValue]] valueForKey:@"description"],
-                                     @"quantity":[NSString stringWithFormat:@"%ld", (long)i]
-                                     };
-        [cartItemWithQuntity addObject:dictionary];
-        
-    }
-    return cartItemWithQuntity;
+    return [self cartItemWithQuntity: arrayWithNonRepetitiveItemTitle arrayWithRepetitiveItemTitle:arrayWithRepetitiveItemTitle itemsInCart:itemsInCart];
 }
 
 
