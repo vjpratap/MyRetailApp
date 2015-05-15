@@ -64,24 +64,24 @@ static NSDictionary *itemDetailsDictionary;
 
 -(NSMutableArray *)addQuantity{
     NSMutableArray *itemsInCart = [NSMutableArray arrayWithArray:[CartItemDetails fetchFromDataBase]];
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    NSMutableArray *titles = [[NSMutableArray alloc]init];
+    NSMutableArray *arrayWithNonRepetitiveItemTitle = [[NSMutableArray alloc] init];
+    NSMutableArray *arrayWithRepetitiveItemTitle = [[NSMutableArray alloc]init];
     NSMutableArray *cartItemWithQuntity = [[NSMutableArray alloc]init];
     
     for (NSInteger i = 0; i < [itemsInCart count]; i++) {
         NSString *title = [[itemsInCart objectAtIndex:i] valueForKey:@"title"];
-        if (![titles containsObject: title]) {
-            [array addObject:@{@"item":title, @"index":[NSString stringWithFormat:@"%ld",(long)i]}];
+        if (![arrayWithRepetitiveItemTitle containsObject: title]) {
+            [arrayWithNonRepetitiveItemTitle addObject:@{@"item":title, @"index":[NSString stringWithFormat:@"%ld",(long)i]}];
         }
         
-        [titles addObject:title];
+        [arrayWithRepetitiveItemTitle addObject:title];
         
     }
     
-    for (NSDictionary *arr in array) {
+    for (NSDictionary *arr in arrayWithNonRepetitiveItemTitle) {
         NSInteger i = 0;
         
-        for (NSString *title in titles) {
+        for (NSString *title in arrayWithRepetitiveItemTitle) {
             if ([arr[@"item"] isEqualToString:title]) {
                 i = i + 1;
             }
@@ -117,7 +117,7 @@ static NSDictionary *itemDetailsDictionary;
 - (IBAction)ShowMyCartPage:(id)sender {
 
     NSMutableArray *mutableArray = [self addQuantity];
-    CartItemViewController *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CartItems"];
+    CartItemViewController *itemVC = [[self storyboard] instantiateViewControllerWithIdentifier:@"CartItems"];
 //    [sender setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)[mutableArray count]]];
     
     itemVC.cartItemArray = mutableArray;

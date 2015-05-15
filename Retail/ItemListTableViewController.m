@@ -39,6 +39,7 @@
     
     cell.itemImage.image = [UIImage imageNamed:[self.items objectAtIndex:[indexPath row]][@"image"]];
     cell.itemLable.text = [self.items objectAtIndex:[indexPath row]][@"item"];
+    cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }

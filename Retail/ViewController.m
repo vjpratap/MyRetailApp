@@ -69,6 +69,7 @@ self.categories = [[NSMutableArray alloc]initWithObjects:@"Electronics",@"Furnit
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SingleCategory"];
     cell.textLabel.text = [self.categories objectAtIndex:indexPath.row];
+    cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
@@ -77,6 +78,7 @@ self.categories = [[NSMutableArray alloc]initWithObjects:@"Electronics",@"Furnit
 {
     ItemListTableViewController *itemList = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemList"];
     itemList.items = [self.categoryItems objectForKey:[self.categories objectAtIndex:[indexPath row]]];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     [self.navigationController pushViewController:itemList animated:YES];
 }
