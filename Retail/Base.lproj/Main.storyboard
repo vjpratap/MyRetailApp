@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R5q-Gk-QIw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R5q-Gk-QIw">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -47,10 +49,10 @@
                                 <exclude reference="NKJ-s3-PQm"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="MJk-NL-RH4"/>
                                 <exclude reference="7zC-Hw-hzb"/>
                                 <exclude reference="Nl4-b3-aXZ"/>
                                 <exclude reference="iie-xh-ojE"/>
-                                <exclude reference="MJk-NL-RH4"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -58,10 +60,10 @@
                                 <include reference="NKJ-s3-PQm"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="MJk-NL-RH4"/>
                                 <include reference="7zC-Hw-hzb"/>
                                 <include reference="Nl4-b3-aXZ"/>
                                 <include reference="iie-xh-ojE"/>
-                                <include reference="MJk-NL-RH4"/>
                             </mask>
                         </variation>
                     </view>
@@ -125,7 +127,7 @@
                         <viewControllerLayoutGuide type="bottom" id="3g2-lu-uRo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nfT-2p-n0z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" enabled="NO" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdS-bq-ifS">
@@ -198,7 +200,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="365" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="HsT-4Y-jN1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="HsT-4Y-jN1">
                                 <rect key="frame" x="0.0" y="0.0" width="365" height="600"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -239,6 +241,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="46" width="365" height="600"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="zCq-wI-UZf" id="IOR-0h-jSG"/>
                                     <outlet property="delegate" destination="zCq-wI-UZf" id="RJQ-gM-o2I"/>
@@ -246,13 +251,62 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HsT-4Y-jN1" firstAttribute="top" secondItem="RJ0-Um-AXf" secondAttribute="bottom" constant="-20" id="3uE-28-02a"/>
+                            <constraint firstAttribute="centerX" secondItem="HsT-4Y-jN1" secondAttribute="centerX" id="66G-py-o5w"/>
+                            <constraint firstItem="HsT-4Y-jN1" firstAttribute="leading" secondItem="TAS-bh-E0T" secondAttribute="leadingMargin" constant="-16" id="IHZ-vm-FYW"/>
+                            <constraint firstItem="HsT-4Y-jN1" firstAttribute="height" secondItem="TAS-bh-E0T" secondAttribute="height" id="IMl-Hv-AHX"/>
+                            <constraint firstItem="G9t-LH-eYZ" firstAttribute="top" secondItem="HsT-4Y-jN1" secondAttribute="bottom" id="Jjk-3d-CTJ"/>
+                            <constraint firstItem="HsT-4Y-jN1" firstAttribute="leading" secondItem="TAS-bh-E0T" secondAttribute="leadingMargin" constant="-16" id="TQl-qv-SUq"/>
+                            <constraint firstItem="HsT-4Y-jN1" firstAttribute="width" secondItem="TAS-bh-E0T" secondAttribute="width" id="W8k-rg-OfX"/>
+                            <constraint firstItem="G9t-LH-eYZ" firstAttribute="top" secondItem="HsT-4Y-jN1" secondAttribute="bottom" id="Yjb-a4-FKV"/>
+                            <constraint firstItem="HsT-4Y-jN1" firstAttribute="top" secondItem="RJ0-Um-AXf" secondAttribute="bottom" constant="-20" id="h7n-ek-gbl"/>
+                            <constraint firstItem="HsT-4Y-jN1" firstAttribute="top" secondItem="RJ0-Um-AXf" secondAttribute="bottom" constant="-20" id="hYM-HX-cFs"/>
+                            <constraint firstItem="HsT-4Y-jN1" firstAttribute="width" secondItem="TAS-bh-E0T" secondAttribute="height" multiplier="73:120" id="hgk-0t-enN"/>
+                            <constraint firstAttribute="centerY" secondItem="HsT-4Y-jN1" secondAttribute="centerY" id="trZ-LF-9II"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HsT-4Y-jN1" secondAttribute="trailing" constant="-16" id="yed-8T-MhF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3uE-28-02a"/>
+                                <exclude reference="66G-py-o5w"/>
+                                <exclude reference="IHZ-vm-FYW"/>
+                                <exclude reference="IMl-Hv-AHX"/>
+                                <exclude reference="TQl-qv-SUq"/>
+                                <exclude reference="W8k-rg-OfX"/>
+                                <exclude reference="h7n-ek-gbl"/>
+                                <exclude reference="hYM-HX-cFs"/>
+                                <exclude reference="hgk-0t-enN"/>
+                                <exclude reference="trZ-LF-9II"/>
+                                <exclude reference="yed-8T-MhF"/>
+                                <exclude reference="Jjk-3d-CTJ"/>
+                                <exclude reference="Yjb-a4-FKV"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="3uE-28-02a"/>
+                                <include reference="66G-py-o5w"/>
+                                <include reference="IHZ-vm-FYW"/>
+                                <include reference="IMl-Hv-AHX"/>
+                                <include reference="TQl-qv-SUq"/>
+                                <include reference="W8k-rg-OfX"/>
+                                <include reference="h7n-ek-gbl"/>
+                                <include reference="hYM-HX-cFs"/>
+                                <include reference="hgk-0t-enN"/>
+                                <include reference="trZ-LF-9II"/>
+                                <include reference="yed-8T-MhF"/>
+                                <include reference="Jjk-3d-CTJ"/>
+                                <include reference="Yjb-a4-FKV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="365" height="600"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBd-bK-LX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2292.75" y="-295"/>
+            <point key="canvasLocation" x="2292.75" y="-278"/>
         </scene>
         <!--Base View Controller-->
         <scene sceneID="zoM-fe-WFJ">

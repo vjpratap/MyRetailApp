@@ -52,7 +52,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *sectionHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, tableView.frame.size.width,0)];
+    UIView *sectionHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width,44)];
     
     UILabel *headerItemLabel = [[UILabel alloc] initWithFrame:
                             CGRectMake(70, -10, 100, 44)];
