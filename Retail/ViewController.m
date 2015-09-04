@@ -66,7 +66,7 @@ self.categories = [[NSMutableArray alloc]initWithObjects:@"Electronics",@"Furnit
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SingleCategory"];
     cell.textLabel.text = [self.categories objectAtIndex:indexPath.row];
     cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
@@ -83,6 +83,18 @@ self.categories = [[NSMutableArray alloc]initWithObjects:@"Electronics",@"Furnit
     [self.navigationController pushViewController:itemList animated:YES];
 }
 
-
+- (IBAction)takePhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    picker.showsCameraControls = NO;
+    
+    [self presentViewController:picker animated:YES
+                     completion:^ {
+                         [picker takePicture];
+                     }];
+}
 
 @end
+

@@ -45,27 +45,15 @@
     return cell;
 }
 
+
 -(void)setLableProperty:(UILabel*)label sectionHeaderView: (UIView *)sectionHeaderView labelText: (NSString*)text{
     [label setFont:[UIFont fontWithName:@"Verdana" size:20.0]];
     [sectionHeaderView addSubview:label];
     label.text = text;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *sectionHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width,44)];
-    
-    UILabel *headerItemLabel = [[UILabel alloc] initWithFrame:
-                            CGRectMake(70, -10, 100, 44)];
-    UILabel *headerQuantityLabel = [[UILabel alloc]initWithFrame:CGRectMake(210, -10, 50, 44)];
-
-    UILabel *headerPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(270, -10, 100, 44)];
-    
-    [self setLableProperty:headerItemLabel sectionHeaderView:sectionHeaderView labelText:@"Items"];
-    [self setLableProperty:headerPriceLabel sectionHeaderView:sectionHeaderView labelText:@"Price"];
-    [self setLableProperty:headerQuantityLabel sectionHeaderView:sectionHeaderView labelText:@"Qty"];
-    
-    return sectionHeaderView;
-    
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [[UIView alloc]init];
 }
 
 
